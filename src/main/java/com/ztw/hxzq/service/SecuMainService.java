@@ -1,5 +1,6 @@
 package com.ztw.hxzq.service;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -28,4 +29,16 @@ public class SecuMainService {
 		});
 		return Lists.newArrayList(set);
 	}
+	
+	public Map<String, String> getMap(){
+		List<Map<String, Object>> list = secuMainMapper.getSecuCodes("SH", "EQA");
+		if(CollectionUtils.isEmpty(list))
+			return null;
+		Map<String, String> returnMap = new HashMap<>(list.size());
+		list.forEach(map -> {
+			returnMap.put((String)map.get("Symbol"), (String)map.get("CName"));
+		});
+		return returnMap;
+	}
+	
 }
