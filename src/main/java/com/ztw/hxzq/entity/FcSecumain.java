@@ -57,4 +57,10 @@ public class FcSecumain implements Serializable {
 		this.secuAbbr = secuAbbr;
 	}
 
+	@Override
+	public String toString() {
+		return "FcSecumain [secuCode=" + secuCode + ", secuMarket=" + secuMarket + ", secuCategory=" + secuCategory
+				+ ", secuAbbr=" + secuAbbr + "]";
+	}
+
 }

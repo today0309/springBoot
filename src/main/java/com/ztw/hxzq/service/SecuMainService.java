@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import com.ztw.hxzq.mapper.SecuMainMapper;
+import com.ztw.hxzq.mapper.finchina.SecuMainMapper;
 
 @Service
 public class SecuMainService {

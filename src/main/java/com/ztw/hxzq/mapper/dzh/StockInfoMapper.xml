@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ztw.hxzq.mapper.SecuMainMapper">
+<mapper namespace="com.ztw.hxzq.mapper.dzh.StockInfoMapper">
 
 	<resultMap id="FcSecumainMap" type="com.ztw.hxzq.entity.FcSecumain">
 		<result column="SecuCode" 		property="secuCode" 		jdbcType="VARCHAR" />
@@ -9,19 +9,20 @@
 		<result column="SecuMarket" 	property="secuMarket" 		jdbcType="VARCHAR" />
 	</resultMap>
 	
-	
-	<select id="getSecuCodes" resultType="java.util.Map">
+	<select id="getAllSecuCodeInfo" resultMap="FcSecumainMap">
 		SELECT
-			Symbol,
-			CName
+			C6 AS SecuCode,
+			C5 AS SecuMarket,
+			C8 AS SecuCategory,
+			C9 AS SecuAbbr
 		FROM
-			CentralDB_DataDict..tDD2002
+			dzh_dd.tDD0020
 		WHERE
-			Exchange = #{secuMarket, jdbcType=VARCHAR}
-		AND SType = #{secuCategory, jdbcType=VARCHAR}
-		AND Flag != 1
-		ORDER BY Symbol
+			C5 = #{secuMarket, jdbcType=VARCHAR}
+		AND C8 = #{secuCategory, jdbcType=VARCHAR}
+		AND C12 = 1
+		AND FLAG != 1
 	</select>
-
+	
 	
 </mapper>

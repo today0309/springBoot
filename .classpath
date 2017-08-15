@@ -6,7 +6,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="src/main/sources"/>
+	<classpathentry excluding="mapper/|mapper/finchina/|mapper/dzh/|mapper/did/" kind="src" path="src/main/sources"/>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
 		<attributes>
 			<attribute name="optional" value="true"/>
