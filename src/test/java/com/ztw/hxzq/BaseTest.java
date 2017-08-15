@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * 测试基类
- * @author Administrator
+ * @author zhongtongwei
  *
  */
 @RunWith(SpringRunner.class)
