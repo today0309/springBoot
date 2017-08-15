@@ -21,7 +21,7 @@ public class BaseTest {
 
 	@Test
 	public void test(){
-		System.out.println("");
+		System.out.println("Hello World!");
 	}
 	
 }
