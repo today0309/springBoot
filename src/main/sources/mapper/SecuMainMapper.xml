@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ztw.hxzq.mapper.SecuMainMapper">
+
+	<resultMap id="FcSecumainMap" type="com.ztw.hxzq.entity.FcSecumain">
+		<result column="SecuCode" 		property="secuCode" 		jdbcType="VARCHAR" />
+		<result column="SecuAbbr" 		property="secuAbbr" 		jdbcType="VARCHAR" />
+		<result column="SecuCategory" 	property="secuCategory" 	jdbcType="VARCHAR" />
+		<result column="SecuMarket" 	property="secuMarket" 		jdbcType="VARCHAR" />
+	</resultMap>
+	
+	
+	<select id="getSecuCodes" resultType="java.util.Map">
+		SELECT
+			Symbol,
+			CName
+		FROM
+			CentralDB_DataDict..tDD2002
+		WHERE
+			Exchange = #{secuMarket, jdbcType=VARCHAR}
+		AND SType = #{secuCategory, jdbcType=VARCHAR}
+		AND Flag != 1
+		ORDER BY Symbol
+	</select>
+
+	
+</mapper>
